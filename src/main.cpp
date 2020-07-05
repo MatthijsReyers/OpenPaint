@@ -1,12 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <gtk/gtk.h>
+#include <gtkmm.h>
 
 static GtkWidget *number1;
 static GtkWidget *number2;
 static GtkWidget *result;
 
-void do_calculate(GtkWidget *calculate, gpointer data) {
+void do_calculate(GtkWidget *calculate, gpointer data)
+{
     int num1 = atoi((char *)gtk_entry_get_text(GTK_ENTRY(number1)));
     int num2 = atoi((char *)gtk_entry_get_text(GTK_ENTRY(number2)));
 
@@ -16,8 +17,8 @@ void do_calculate(GtkWidget *calculate, gpointer data) {
     gtk_label_set_text(GTK_LABEL(result), buffer);
 }
 
-// gcc 007_gtk.c -o 007_gtk `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0`
-int main(int argc, char **argv) {
+int main(int argc, char* argv[])
+{
     GtkWidget *window, *grid, *calculate;
     gtk_init(&argc, &argv);
 
