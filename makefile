@@ -1,13 +1,14 @@
 
 CXX = g++
+CC = gcc
 
-CXX_FLAGS = `pkg-config --cflags --libs gtkmm-3.0`
-CXX_FLAGS += -g -Wall -Wformat
+CXX_FLAGS = -g -Wall -Wformat
+CXX_FLAGS += -l${LIB_DIR}
 
 BIN_DIR = ./bin/
 SRC_DIR = ./src/
 OBJ_DIR = ./obj/
-LIB_DIR = ./lib/
+LIB_DIR = lib/
 
 SRC_FILES = $(wildcard ${SRC_DIR}/*.cpp) $(wildcard ${SRC_DIR}/*/*.cpp)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES))
@@ -24,8 +25,8 @@ setup:
 	mkdir -p obj obj/ui bin
 
 cleanup:
-	rm ${EXEC}
-	rm -r ${OBJ_DIR}/*
+	rm -f ${EXEC}
+	rm -rf ${OBJ_DIR}/*
 
-run:
-	./${EXEC}
+run: main
+	./${BIN_DIR}${EXEC}
