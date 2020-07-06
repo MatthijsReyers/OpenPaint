@@ -4,7 +4,8 @@
             "name": "OpenPaint",
             "includePath": [
                 "/usr/include/",
-                "lib/"
+                "dep/",
+                "dep/ImGui/include"
             ],
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
