@@ -5,5 +5,5 @@ int main(int argc, char* argv[])
 {
     SDL::init(SDL::InitFlag::VIDEO);
 
-    return 1;
+    return 0;
 }
